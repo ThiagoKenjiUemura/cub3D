@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+         #
+#    By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/23 11:00:00 by thiago            #+#    #+#              #
-#    Updated: 2025/07/29 19:10:13 by thiagouemur      ###   ########.fr        #
+#    Updated: 2026/04/27 18:06:10 by tkenji-u         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@ SRC =	ft_atoi.c		\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c	\
+		get_next_line.c \
+		get_next_line_utils.c \
 
 OBJS = $(SRC:.c=.o)
 
