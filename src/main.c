@@ -6,7 +6,7 @@
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:42 by tkenji-u          #+#    #+#             */
-/*   Updated: 2026/04/27 17:40:18 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2026/04/27 20:50:15 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,4 @@ int	main(int ac, char **av)
 	init_game(&game);
 	return (0);
 }
+//teste
