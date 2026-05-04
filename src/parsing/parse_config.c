@@ -6,7 +6,7 @@
 /*   By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:46 by tkenji-u          #+#    #+#             */
-/*   Updated: 2026/04/29 15:04:28 by thiagouemur      ###   ########.fr       */
+/*   Updated: 2026/05/04 18:17:02 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	parse_file(t_game *game, char *filename)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		if (ft_strncmp(line, "NO ", 3) == 0)
 		{
 			if (game->map.n_texture != NULL)
@@ -37,7 +37,7 @@ void	parse_file(t_game *game, char *filename)
 				exit(1);
 			}
 			i = 2;
-			while(line[i] == ' ')
+			while (line[i] == " ")
 				i++;
 			game->map.n_texture = ft_strtrim(&line[i], " \n");
 		}
@@ -67,16 +67,9 @@ void	parse_file(t_game *game, char *filename)
 		}
 		if (ft_strncmp(line, "EA ", 3) == 0)
 		{
-			if (game->map.n_texture != NULL)
-			{
-				printf("Error\nDuplicate texture for NO.\n");
-				exit(1);
-			}
-			i = 2;
-			while(line[i] == ' ')
-				i++;
-			game->map.e_texture = ft_strtrim(&line[i], " \n");
-		}  
+
+		}
+		printf("%s", line);
 		free(line);
 	}
 	close(fd);
