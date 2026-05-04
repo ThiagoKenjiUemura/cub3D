@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:46 by tkenji-u          #+#    #+#             */
 /*   Updated: 2026/05/04 18:17:02 by tkenji-u         ###   ########.fr       */
@@ -21,7 +21,7 @@ void	parse_file(t_game *game, char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
-		perror("Error\nCould not open the file.\n");
+		printf("Error\nCould not open the file.\n");
 		exit(1);
 	}
 	while (1)
@@ -31,6 +31,11 @@ void	parse_file(t_game *game, char *filename)
 			break ;
 		if (ft_strncmp(line, "NO ", 3) == 0)
 		{
+			if (game->map.n_texture != NULL)
+			{
+				printf("Error\nDuplicate texture for NO.\n");
+				exit(1);
+			}
 			i = 2;
 			while (line[i] == " ")
 				i++;
@@ -38,11 +43,27 @@ void	parse_file(t_game *game, char *filename)
 		}
 		if (ft_strncmp(line, "SO ", 3) == 0)
 		{
-			
+			if (game->map.s_texture != NULL)
+			{
+				printf("Error\nDuplicate texture for SO.\n");
+				exit(1);
+			}
+			i = 2;
+			while(line[i] == ' ')
+				i++;
+			game->map.s_texture = ft_strtrim(&line[i], " \n");
 		}
 		if (ft_strncmp(line, "WE ", 3) == 0)
 		{
-			
+			if (game->map.n_texture != NULL)
+			{
+				printf("Error\nDuplicate texture for NO.\n");
+				exit(1);
+			}
+			i = 2;
+			while(line[i] == ' ')
+				i++;
+			game->map.w_texture = ft_strtrim(&line[i], " \n");
 		}
 		if (ft_strncmp(line, "EA ", 3) == 0)
 		{
