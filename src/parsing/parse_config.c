@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+        */
+/*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:46 by tkenji-u          #+#    #+#             */
-/*   Updated: 2026/05/04 18:17:02 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2026/05/04 18:41:59 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,20 @@ void	parse_file(t_game *game, char *filename)
 			if (game->map.n_texture != NULL)
 			{
 				printf("Error\nDuplicate texture for NO.\n");
+				free(line);
 				exit(1);
 			}
 			i = 2;
-			while (line[i] == " ")
+			while (line[i] == ' ')
 				i++;
 			game->map.n_texture = ft_strtrim(&line[i], " \n");
 		}
-		if (ft_strncmp(line, "SO ", 3) == 0)
+		else if (ft_strncmp(line, "SO ", 3) == 0)
 		{
 			if (game->map.s_texture != NULL)
 			{
 				printf("Error\nDuplicate texture for SO.\n");
+				free(line);
 				exit(1);
 			}
 			i = 2;
@@ -53,11 +55,12 @@ void	parse_file(t_game *game, char *filename)
 				i++;
 			game->map.s_texture = ft_strtrim(&line[i], " \n");
 		}
-		if (ft_strncmp(line, "WE ", 3) == 0)
+		else if (ft_strncmp(line, "WE ", 3) == 0)
 		{
-			if (game->map.n_texture != NULL)
+			if (game->map.w_texture != NULL)
 			{
-				printf("Error\nDuplicate texture for NO.\n");
+				printf("Error\nDuplicate texture for WE.\n");
+				free(line);
 				exit(1);
 			}
 			i = 2;
@@ -65,9 +68,22 @@ void	parse_file(t_game *game, char *filename)
 				i++;
 			game->map.w_texture = ft_strtrim(&line[i], " \n");
 		}
-		if (ft_strncmp(line, "EA ", 3) == 0)
+		else if (ft_strncmp(line, "EA ", 3) == 0)
 		{
-
+			if (game->map.e_texture != NULL)
+			{
+				printf("Error\nDuplicate texture for EA.\n");
+				free(line);
+				exit(1);
+			}
+			i = 2;
+			while (line[i] == ' ')
+				i++;
+			game->map.e_texture = ft_strtrim(&line[i], " \n");
+		}
+		else if (ft_strncmp(line, "F ", 2) == 0)
+		{
+			
 		}
 		printf("%s", line);
 		free(line);
