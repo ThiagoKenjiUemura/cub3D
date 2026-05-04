@@ -6,7 +6,7 @@
 /*   By: thiagouemura <thiagouemura@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:46 by tkenji-u          #+#    #+#             */
-/*   Updated: 2026/04/28 09:57:21 by thiagouemur      ###   ########.fr       */
+/*   Updated: 2026/04/29 15:04:28 by thiagouemur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	parse_file(t_game *game, char *filename)
 			while(line[i] == ' ')
 				i++;
 			game->map.e_texture = ft_strtrim(&line[i], " \n");
-		}
+		}  
 		free(line);
 	}
 	close(fd);
