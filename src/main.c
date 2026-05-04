@@ -6,15 +6,16 @@
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:42 by tkenji-u          #+#    #+#             */
-/*   Updated: 2026/04/27 20:50:15 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2026/05/04 18:16:00 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void init_game(t_game *game)
+void	init_game(t_game *game)
 {
-	int i;
+	int	i;
+
 	game->mlx_ptr = NULL;
 	game->win_ptr = NULL;
 	game->map.n_texture = NULL;
@@ -68,4 +69,3 @@ int	main(int ac, char **av)
 	init_game(&game);
 	return (0);
 }
-//teste

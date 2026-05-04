@@ -6,7 +6,7 @@
 /*   By: tkenji-u <tkenji-u@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:46 by tkenji-u          #+#    #+#             */
-/*   Updated: 2026/04/27 20:47:54 by tkenji-u         ###   ########.fr       */
+/*   Updated: 2026/05/04 18:17:02 by tkenji-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	parse_file(t_game *game, char *filename)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		if (ft_strncmp(line, "NO ", 3) == 0)
 		{
 			i = 2;
-			while(line[i] == " ")
+			while (line[i] == " ")
 				i++;
 			game->map.n_texture = ft_strtrim(&line[i], " \n");
 		}
@@ -46,12 +46,10 @@ void	parse_file(t_game *game, char *filename)
 		}
 		if (ft_strncmp(line, "EA ", 3) == 0)
 		{
-			
+
 		}
 		printf("%s", line);
 		free(line);
 	}
 	close(fd);
 }
-
-//teste
